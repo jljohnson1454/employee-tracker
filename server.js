@@ -52,7 +52,7 @@ const employeeDatabase = () => {
             },
         ])
         .then((answers) => {
-            console.log('poop')
+            
             switch (answers.choices) {
                 case 'View all departments':
                 showDepartments();
@@ -91,8 +91,18 @@ const employeeDatabase = () => {
     };
 
     showDepartments = () => {
-        db.query(`SELECT * FROM departments`, (err,rows => {
-            console.log(rows);
-        }))
+        const query = (`SELECT department.id AS id, department.name AS department FROM department`);
+        
+        db.query(`SELECT * FROM departments`, (err,rows) => {
+            console.table(rows);
+        })
         console.log('POOP');
     }
+
+    showRoles = () => {
+        const query = (`SELECT roles.id AS id, roles.title AS title, roles.salary AS salary FROM roles`);
+
+        db.query(`SELECT * FROM roles`, (err, rows) => {
+            console.table(rows);
+        })
+        }
