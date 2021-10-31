@@ -33,7 +33,9 @@ Video Walkthrough:
 
 ## Contributions
 Buit by Jacob Johnson
+</br>
 Assisstance provided by Joey Sisk
+</br>
 Used Module 12 activities from UT Boot Camp for reference
 
 ## License
