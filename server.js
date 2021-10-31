@@ -15,17 +15,19 @@ const db = mysql.createConnection(
       
       user: 'root',
       // {TODO: Add your MySQL password}
-      password: '',
-      database: 'inventory_db'
+      password: 'Linksys235769!',
+      database: 'employees'
     },
-    console.log(`Connected to the inventory_db database.`)
+    console.log(`Connected to the Employee database.`)
   );
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
+db.query(`SELECT * FROM roles`, (err, rows) => {
+    console.log(rows);
+  });
 
 const employeeDatabase = () => {
     inquirer
@@ -84,22 +86,10 @@ const employeeDatabase = () => {
         })
     };
 
-app.get('/', (req, res) => {
-    res.json({
-      message: 'Hello World'
-    });
-  });
-
-  // Default response for any other request (Not Found)
-app.use((req, res) => {
-    res.status(404).end();
-  });
+    showDepartments = () => {
+        db.query(`SELECT * FROM departments`, (err,rows => {
+            console.log(rows);
+        }))
 
 
-
-
-
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+    }
