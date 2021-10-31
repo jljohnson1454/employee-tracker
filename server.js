@@ -20,7 +20,7 @@ const db = mysql.createConnection(
       password: 'Linksys235769!',
       database: 'employees'
     },
-    console.log(`Connected to the Employee database.`)
+    console.log(`Welcome to the Employee database!`)
   );
 
 db.connect((err) => {
@@ -137,20 +137,21 @@ const employeeDatabase = () => {
         inquirer.prompt([
             {
                 type: 'input',
-                name: 'addRole',
+                name: 'roleAdd',
                 message: 'Please enter a new role!'
             }
             // {
             //     type: 'input',
-            //     name: 'roleSalary',
+            //     name: 'addSalary',
             //     message: 'What is the salary of this role?'
             // }
         ])
         .then(answer => {
-            db.query(`INSERT INTO roles (title) VALUES (?)`, answer.addRole, (err, result) => {
-                console.log('Role ' + answer.addRole + ' has been added!')
+            console.log(answer);
+            db.query(`INSERT INTO roles (title) VALUES (BLaarg)`, answer.roleAdd, (err, result) => {
+                console.log(answer.roleAdd)
+                console.log('Role ' + answer.roleAdd + ' has been added!')
                 showRoles();
             })
         })
     }
-    

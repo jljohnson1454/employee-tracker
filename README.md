@@ -23,6 +23,13 @@ npm start
 
 ## Usage
 
+Video Walkthrough:
+[![video walkthrough](https://img.youtube.com/vi/Vk3tNOmCwm8/0.jpg)](https://youtu.be/lJ15mDvSUFQ)
+
+
+
+![Walkthrough Gif](/assets/images/walkthroughgif.gif)
+
 ## Contributions
 Buit by Jacob Johnson
 Assisstance provided by Joey Sisk
