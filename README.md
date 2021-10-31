@@ -24,6 +24,7 @@ npm start
 ## Usage
 
 Video Walkthrough:
+</br>
 [![video walkthrough](https://img.youtube.com/vi/Vk3tNOmCwm8/0.jpg)](https://youtu.be/lJ15mDvSUFQ)
 
 
