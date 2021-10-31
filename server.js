@@ -1,4 +1,5 @@
 const express = require('express');
+const inquirer = require('inquirer');
 
 
 const PORT = process.env.PORT || 3001;
@@ -6,6 +7,7 @@ const app = express();
 
 const cTable = require('console.table');
 const mysql = require('mysql2');
+
 
 
 // Connect to database
@@ -21,13 +23,15 @@ const db = mysql.createConnection(
     console.log(`Connected to the Employee database.`)
   );
 
+db.connect((err) => {
+    if(err) throw err;
+
+    employeeDatabase();
+})
+
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-db.query(`SELECT * FROM roles`, (err, rows) => {
-    console.log(rows);
-  });
 
 const employeeDatabase = () => {
     inquirer
@@ -43,13 +47,13 @@ const employeeDatabase = () => {
                 'Add a department',
                 'Add a role',
                 'Add an employee',
-                'Update an employee role'
+                'Update an employee role',
             ]
             },
         ])
-        .then ((answers) => {
-            
-            switch (answers.action) {
+        .then((answers) => {
+            console.log('poop')
+            switch (answers.choices) {
                 case 'View all departments':
                 showDepartments();
                 break;
@@ -90,6 +94,5 @@ const employeeDatabase = () => {
         db.query(`SELECT * FROM departments`, (err,rows => {
             console.log(rows);
         }))
-
-
+        console.log('POOP');
     }
